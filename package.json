@@ -1,6 +1,6 @@
 {
   "name": "@stefanprobst/next-image-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.cjs",
   "types": "src/index.d.ts",
   "type": "module",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "exports": {
     "types": "./src/index.d.ts",
-    "import": "./src/index.cjs"
+    "require": "./src/index.cjs"
   },
   "files": [
     "src"
@@ -16,7 +16,7 @@
   "scripts": {
     "format": "prettier . -l --ignore-path .gitignore",
     "format:fix": "yarn format --write",
-    "lint": "eslint . --cache --ignore-path .gitignore",
+    "lint": "eslint . --ext .cjs,.mjs,.js --cache --ignore-path .gitignore",
     "lint:fix": "yarn lint --fix",
     "prepare": "simple-git-hooks || true",
     "validate": "yarn format && yarn lint"
@@ -60,7 +60,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.@(js|cjs|mjs)": [
       "eslint --cache --fix",
       "prettier --write"
     ],
