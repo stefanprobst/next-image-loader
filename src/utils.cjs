@@ -10,9 +10,7 @@ const VALID_BLUR_EXT = ['jpeg', 'png', 'webp', 'avif']
 
 function addBlurDataUrl(content, extension, width, height) {
   if (VALID_BLUR_EXT.includes(extension)) {
-    const dimension = width >= height ? 'width' : 'height'
-
-    return resizeImage(content, dimension, BLUR_IMG_SIZE, extension, BLUR_QUALITY).then(
+    return resizeImage(content, BLUR_IMG_SIZE, BLUR_IMG_SIZE, extension, BLUR_QUALITY).then(
       (resizedImage) => {
         const blurDataURL = `data:image/${extension};base64,${resizedImage.toString('base64')}`
         return { width, height, blurDataURL }
